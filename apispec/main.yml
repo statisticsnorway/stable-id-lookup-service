@@ -1,0 +1,31 @@
+openapi: '3.0.2'
+info:
+  title: FREG Stable ID Lookup
+  version: '1.0'
+  description: Lookup service for Stable ID between person-identifiers.
+ 
+servers:
+  - url: https://api.server.test/v1
+
+paths:
+  /fnr2snr:
+    get:
+      description: Get current SNR for given Fnr/Dnr
+      parameters:
+        - name: fnr
+          in: query 
+          required: true
+          schema:
+            type: string
+
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: string
+        "404":
+          description: "Not Found"
+
+          
